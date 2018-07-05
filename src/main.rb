@@ -1,3 +1,3 @@
 class Main
-  put "hello world"
+  puts "hello world"
 end
