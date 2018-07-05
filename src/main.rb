@@ -16,3 +16,5 @@ class Main < Gosu::Window
 end
 
 Main.new.show
+
+>>>>>>> branch 'master' of https://github.com/wesley7611/ancr.git
