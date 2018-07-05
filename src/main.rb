@@ -1,9 +1,27 @@
 require 'gosu'
 
+
+
+class Room 
+  
+  def initialize()
+    @background = Gosu::Image.new("background/test.jpg")
+    
+  end
+  
+  def getBackground()
+    return @background
+  end
+
+end
+
+
 class Main < Gosu::Window
   def initialize
     super 640, 480
-    self.caption = "Tutorial Game"
+    self.caption = "ANCR"
+    @room = Room.new()
+    
   end
   
   def update
@@ -11,10 +29,10 @@ class Main < Gosu::Window
   end
   
   def draw
-    # ...
+   @room.getBackground().draw(0,0, 0)
   end
+  
 end
 
 Main.new.show
 
->>>>>>> branch 'master' of https://github.com/wesley7611/ancr.git
