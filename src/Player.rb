@@ -1,6 +1,6 @@
 class Player
   def initialize
-    @image = Gosu::Image.new("sprite/warrior.jpg")
+    @image = Gosu::Image.new("sprite/pcm.png")
     @x = @y = @vel_x = @vel_y = @angle = 0.0
   end
 
@@ -9,19 +9,19 @@ class Player
   end
   
   def moveleft
-    @x = @x-1
+    @x = @x-32
   end
   
   def moveright
-    @x += 1
+    @x += 32
   end
   
   def moveup
-    @y -= 1
+    @y -= 32
   end
   
   def movedown
-    @y += 1
+    @y += 32
   end
   
  

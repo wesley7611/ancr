@@ -13,20 +13,21 @@ class Main < Gosu::Window
   end
   
   def update
-    if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
-          @player.moveleft
+    def button_down(id)
+      case id
+       when Gosu::KB_LEFT
+        @player.moveleft()
+        
+      when Gosu::KB_RIGHT
+        @player.moveright()
+      
+      when Gosu::KB_UP
+        @player.moveup()
+      
+      when Gosu::KB_DOWN
+        @player.movedown()
+      end
     end
-    if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
-          @player.moveright
-    end
-    if Gosu.button_down? Gosu::KB_UP or Gosu::button_down? Gosu::GP_UP
-          @player.moveup
-    end
-    if Gosu.button_down? Gosu::KB_DOWN or Gosu::button_down? Gosu::GP_DOWN
-          @player.movedown
-    end
-    
-    #@player.move
   end
   
   def draw
