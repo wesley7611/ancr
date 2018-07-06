@@ -4,13 +4,13 @@ class Server < Game
   
   def initialize
    super
-   @server = TCPServer.new("127.0.0.1", 8088)
+   @server = TCPServer.new("192.168.0.12", 8088)
+   #@server.open(8088)
    puts @server
-   async.run
+   run
   end
   
   def run
-    
     loop { async.handle_connection @server.accept}
   end
   

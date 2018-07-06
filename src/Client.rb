@@ -4,7 +4,8 @@ class Client < Game
   finalizer :shutdown
   def initialize
     super
-    @socket = TCPSocket.open("127.0.0.1", 8088)
+    @socket = TCPSocket.new "188.222.55.241", 8088
+    
   end
   Client.new.show
   
