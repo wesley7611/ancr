@@ -2,9 +2,11 @@ require 'gosu'
 
 class Room 
   
-  def initialize()
-    @background = Gosu::Image.new("background/test.jpg")
-    
+  def initialize(background)
+    @background = Gosu::Image.new(background)
   end
-
+  
+  def getBackground()
+    return @background
+  end
 end
