@@ -3,9 +3,12 @@ require 'celluloid/io'
 require 'src/Room.rb'
 require 'src/Player.rb'
 
-class Main < Gosu::Window
+class Game < Gosu::Window
+  include Celluloid::IO
+  
   def initialize
     super 640, 480
+    
     self.caption = "ANCR"
     @room = Room.new("background/test.jpg")
     @player = Player.new
@@ -40,5 +43,4 @@ class Main < Gosu::Window
 end
 
 
-Main.new.show
 

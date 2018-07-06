@@ -1,4 +1,11 @@
-require 'Main'
+require 'src/Game.rb'
 
-class Client < Main
+class Client < Game
+  finalizer :shutdown
+  def initialize
+    super
+    
+  end
+  Client.new.show
+  
 end
