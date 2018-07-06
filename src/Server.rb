@@ -1,12 +1,10 @@
 require 'src/Game.rb'
-require 'src/World.rb'
-require 'src/ConnectionManager.rb'
 class Server < Game
   finalizer:shutdown
   
   def initialize
    super
-   @server = TCPServer.new("188.222.55.241", 8088)
+   @server = TCPServer.new("127.0.0.1", 8088)
    puts @server
    async.run
   end
