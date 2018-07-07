@@ -1,7 +1,7 @@
-class Player
-  def initialize
-    @image = Gosu::Image.new("sprite/pcm.png")
-    @x = @y = @vel_x = @vel_y = @angle = 0.0
+class Actor
+  def initialize(name, image)
+    @image = Gosu::Image.new(image)
+    @x = @y =  0.0
   end
 
   def warp(x, y)
@@ -27,6 +27,17 @@ class Player
  
 
   def draw
-    @image.draw_rot(@x, @y, 1, @angle)
+    @image.draw(@x, @y, 1)
   end
+end
+
+
+class Player < Actor
+
+  def initialize(user)
+    @user = user
+    @image = Gosu::Image.new("sprite/pcm.png")
+    @x = @y = @vel_x = @vel_y = @angle = 0.0
+  end
+
 end

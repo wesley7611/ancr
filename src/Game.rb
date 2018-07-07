@@ -2,17 +2,17 @@ require 'gosu'
 require 'celluloid/io'
 require 'src/Room.rb'
 require 'src/Player.rb'
+#require 'src/Client.rb'
+#require 'src/Host.rb'
 
 class Game < Gosu::Window
-  include Celluloid::IO
+  #include Celluloid::IO
   
-  def initialize
+  def initialize()
     super 640, 480
-    
     self.caption = "ANCR"
     @room = Room.new("background/test.jpg")
-    @player = Player.new
-    @player.warp(0, 0)
+    #@player
     
   end
   
