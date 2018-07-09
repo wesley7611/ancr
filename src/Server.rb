@@ -14,15 +14,27 @@ class Server
    #@server.open(8088)
    puts @server
    async.run
+   unless @connections.nil?
+   Thread.new{
+       update
+   }
+   end
   end
  
   
   def run
     loop { 
       async.handle_connection @server.accept
-      @connections.each do |player|
-        msg = player.recv(1024)
-        puts msg
+    }
+  end
+  
+  def update
+    loop{ 
+      
+      #async.receiveFromPort
+      @connections.each do |socket|
+        msg = socket.recv(1024)
+              puts msg
       end
     }
   end
@@ -32,15 +44,13 @@ class Server
     user = "#{host}:#{port}"
     puts "#{user} has joined the game"
     @playersConnected.push(Player.new(user))
-    @connections.push(port)
+    @connections.push(socket)
     socket.send "#{Player}|#{user}", 0
     socket.send "#{port}", 0
-    
+    puts "PLAYER LIST"
     @playersConnected.each do |player|
-      puts "A"
       puts player
     end
-    puts "b"
   end
   
   Server.new

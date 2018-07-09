@@ -7,12 +7,12 @@ class Client < Game
     @socket = TCPSocket.new("localhost", 28888)
     #188.222.55.241
     
-    while 
-      @player.nil?
-      @player = Player.new(@socket.recv(1024))
-      puts @player
-      @player.warp(0, 0)
-    end
+    while @player.nil?
+          @player = Player.new(@socket.recv(1024))
+          @socket.write("TEST")
+          #puts @player
+          @player.warp(0, 0)
+          end
   end
   Client.new.show
   
