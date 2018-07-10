@@ -26,20 +26,24 @@ class Client < Game
     }
     Thread.new{
       loop{
-        msg = @socket.recv(30)
+        msg = @socket.recv(1024)
         data = msg.split"|"
-        if @players.include? data[0]
-          @players.each do |player|
-            if player.getUser() == data[0]
-              player.setX(data[1])
-              player.setY(data[2])
-            end
+        puts data[0]
+        match = false
+        @players.each do |player|
+          if player.getUser() == data[0]
+            puts "MATCHX"
+            player.setX(data[1])
+            player.setY(data[2])
+            match = true
           end
-        else
-          p = Player.new(data[0])
-          p.warp(data[1],data[2])
-          @players.push(p)
+          if match == false
+            p = Player.new(data[0])
+            #p.warp(data[1],data[2])
+            @players.push(p)
+          end
         end
+        puts "end"
       }
     }
   end

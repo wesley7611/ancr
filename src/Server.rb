@@ -60,7 +60,7 @@ class Server
       loop{
         @playersConnected.each do |p|
           msg = p.getUser() + "|" + "#{p.getX}" + "|" + "#{p.getY}" 
-          socket.write(msg)
+          socket.send(msg, 0)
         end
       }
     }
