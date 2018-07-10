@@ -12,6 +12,7 @@ class Game < Gosu::Window
     super 640, 480
     self.caption = "ANCR"
     @room = Room.new("background/test.jpg")
+    @players = Array.new
     #@player
     
   end
@@ -36,6 +37,9 @@ class Game < Gosu::Window
   
   def draw
    @room.getBackground().draw(0,0, 0)
+   @players.each do |p|
+     p.draw()
+   end
    @player.draw()
    
   end
